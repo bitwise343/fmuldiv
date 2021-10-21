@@ -12,11 +12,15 @@ contract FmuldivTest is DSTest {
         fmuldiv = new Fmuldiv();
     }
 
-    function testFail_basic_sanity() public {
-        assertTrue(false);
+    function testFMul() public {
+        assertEq(fmuldiv.fmul(2.5e27, 0.5e27, 1e27), 1.25e27);
+        assertEq(fmuldiv.fmul(2.5e18, 0.5e18, 1e18), 1.25e18);
+        assertEq(fmuldiv.fmul(2.5e8, 0.5e8, 1e8), 1.25e8);
     }
 
-    function test_basic_sanity() public {
-        assertTrue(true);
+    function testFDiv() public {
+        assertEq(fmuldiv.fdiv(1e27, 2e27, 1e27), 0.5e27);
+        assertEq(fmuldiv.fdiv(1e18, 2e18, 1e18), 0.5e18);
+        assertEq(fmuldiv.fdiv(1e8, 2e8, 1e8), 0.5e8);
     }
 }

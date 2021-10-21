@@ -1,0 +1,61 @@
+;; compiles to: 58601401828202928304821490576000600052fd5b500460005260206000f3
+;; test values: uncomment top 3 push instructions to test
+;; use: `evm --debug run fmul.easm`
+;; PUSH 1
+;; PUSH 2
+;; PUSH 8
+PC
+PUSH 20
+ADD
+DUP3
+DUP3
+MUL
+SWAP3
+DUP4
+DIV
+DUP3
+EQ
+SWAP1
+JUMPI
+PUSH 0
+PUSH 0
+MSTORE
+REVERT
+JUMPDEST
+POP
+DIV
+PUSH 0
+MSTORE
+PUSH 32
+PUSH 0
+RETURN
+
+;; stack visualization
+;; x y b
+;; p x y b
+;; s p x y b
+;; j x y b
+;; y j x y b
+;; x y j x y b
+;; a j x y b
+;; y j x a b
+;; a y j x a b
+;; c j x a b
+;; x c j x a b
+;; e j x a b
+;; j e x a b
+;; x a b
+;; a b
+;; r
+;; 0 r
+;; <-- mstore clears stack
+;; 32
+;; 0 32
+;; <-- returns
+
+;; b == baseUnit
+;; p == codepoint
+;; j == jumpdest
+;; a == mul(x, y)
+;; c == div(a, y)
+;; e == eq(c, x)
