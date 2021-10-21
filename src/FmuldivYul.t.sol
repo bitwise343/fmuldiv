@@ -29,7 +29,7 @@ contract FmuldivTest is DSTest {
     }
 
     function testFMul() public {
-        assertEq(fmuldiv.fmul(2.5e27, 0.5e27, 1e27), 1.25e27);
+        assertEq(fmuldiv.fmul(0.5e27, 2.5e27, 1e27), 1.25e27);
         assertEq(fmuldiv.fmul(2.5e18, 0.5e18, 1e18), 1.25e18);
         assertEq(fmuldiv.fmul(2.5e8, 0.5e8, 1e8), 1.25e8);
     }
