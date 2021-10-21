@@ -27,7 +27,7 @@ object "Fmuldiv" {
             }
 
             function fmul(x, y, baseUnit) {
-                verbatim_3i_0o(hex"58601401828202928304821490576000600052fd5b5004", x, y, baseUnit)
+                verbatim_3i_0o(hex"58601401828202928304821490576000600052fd5b500460005260206000f3", x, y, baseUnit)
             }
 
             function fdiv(x, y, baseUnit) {
